@@ -11,16 +11,16 @@ def arb_to_roman(num):
 
 def roman_to_arb():
     val = {'I': 1, 'V': 5, 'X': 10}
-    string = str(input('Enter a roman numeral: '))
-    string = string.upper()
+    roman = str(input('Enter a roman numeral: '))
+    roman = roman.upper()
     total = 0
-    while string:
-        if len(string) == 1 or val[string[0]] >= val[string[1]]:
-            total += val[string[0]]
-            string = string[1:]
+    while roman:
+        if len(roman) == 1 or val[roman[0]] >= val[roman[1]]:
+            total += val[roman[0]]
+            roman = roman[1:]
         else:
-            total += val[string[1]] - val[string[0]]
-            string = string[2:]
+            total += val[roman[1]] - val[roman[0]]
+            roman = roman[2:]
     print(total)
 
 def menu():
