@@ -154,7 +154,7 @@ def bishopmove():
         if len(ask) == 2:
             X = column.index(int(ask[1]))
             Y = row.index(str(ask[0].lower()))
-            bishoppossiblemove = [[X + 1, Y-1],
+            bishoppossiblemove =[[X + 1, Y-1],
                                 [X + 2, Y-2],
                                 [X + 3, Y-3],
                                 [X + 4, Y-4],
@@ -169,7 +169,23 @@ def bishopmove():
                                 [X - 5, Y+5],
                                 [X - 6, Y+6],
                                 [X - 7, Y+7],
-                                [X - 8, Y+8]]
+                                [X - 8, Y+8],
+                                [X + 1, Y+1],
+                                [X + 2, Y+2],
+                                [X + 3, Y+3],
+                                [X + 4, Y+4],
+                                [X + 5, Y+5],
+                                [X + 6, Y+6],
+                                [X + 7, Y+7],
+                                [X + 8, Y+8],
+                                [X - 1, Y-1],
+                                [X - 2, Y-2],
+                                [X - 3, Y-3],
+                                [X - 4, Y-4],
+                                [X - 5, Y-5],
+                                [X - 6, Y-6],
+                                [X - 7, Y-7],
+                                [X - 8, Y-8]]
             try:
                 board[X][Y] = 'O'
                 for i, c in bishoppossiblemove:
@@ -186,8 +202,70 @@ def bishopmove():
         else:
             print("You need to input a position E.g b1")
             break
+def queenmove():
+    ask = input("Position : ")
+    while True :
+        if len(ask) == 2:
+            X = column.index(int(ask[1]))
+            Y = row.index(str(ask[0].lower()))
+            queenpossiblemove =[[X + 1, Y-1],
+                                [X + 2, Y-2],
+                                [X + 3, Y-3],
+                                [X + 4, Y-4],
+                                [X + 5, Y-5],
+                                [X + 6, Y-6],
+                                [X + 7, Y-7],
+                                [X + 8, Y-8],
+                                [X - 1, Y+1],
+                                [X - 2, Y+2],
+                                [X - 3, Y+3],
+                                [X - 4, Y+4],
+                                [X - 5, Y+5],
+                                [X - 6, Y+6],
+                                [X - 7, Y+7],
+                                [X - 8, Y+8],
+                                [X + 1, Y+1],
+                                [X + 2, Y+2],
+                                [X + 3, Y+3],
+                                [X + 4, Y+4],
+                                [X + 5, Y+5],
+                                [X + 6, Y+6],
+                                [X + 7, Y+7],
+                                [X + 8, Y+8],
+                                [X - 1, Y-1],
+                                [X - 2, Y-2],
+                                [X - 3, Y-3],
+                                [X - 4, Y-4],
+                                [X - 5, Y-5],
+                                [X - 6, Y-6],
+                                [X - 7, Y-7],
+                                [X - 8, Y-8],
+                                [X + 1, Y],
+                                [X + 1, Y + 1],
+                                [X, Y + 1],
+                                [X - 1, Y + 1],
+                                [X - 1, Y],
+                                [X - 1, Y - 1],
+                                [X, Y - 1],
+                                [X + 1, Y - 1]]
+            try:
+                board[X][Y] = 'O'
+                for i, c in queenpossiblemove:
+                    try:
+                        if i >= 0 and c >= 0:
+                            board[i][c] = '+'
+                    except:
+                        pass
+                for i in range(len(board)):
+                    print(''.join(board[i]))
+            except:
+                pass
+            break
+        else:
+            print("You need to input a position E.g b1")
+            break
 def menu():
-    steps = ("1. King move list \n""2. Knight move list\n""3. Pawn move list\n""4. Rook move list\n""5. Not so finished bishop move list\n""6. EXIT\n")
+    steps = ("1. King move list \n""2. Knight move list\n""3. Pawn move list\n""4. Rook move list\n""5. Bishop move list\n""6. Queen move list\n""7. Exit\n")
     choice = input(steps)
     return int(choice)
 while True:
@@ -214,6 +292,10 @@ while True:
             del board
             board = [['-'] * 8 for i in range(8)]
         elif choice == 6:
+            queenmove()
+            del board
+            board = [['-'] * 8 for i in range(8)]
+        elif choice == 7:
             break
 
     except ValueError:
