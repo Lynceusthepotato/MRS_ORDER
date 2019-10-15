@@ -12,7 +12,6 @@ for x in listz:
 
 count = result.values()
 indentation = list(range(1, len(count) + 1))
-f = result.keys()
 wl = [i for i in result.keys()]
 wlSorted = [w for c, w in sorted(zip(count, wl))]
 plt.barh(tuple(wlSorted),sorted(count) , edgecolor ="black", linewidth = 0.5, color ="turquoise")
