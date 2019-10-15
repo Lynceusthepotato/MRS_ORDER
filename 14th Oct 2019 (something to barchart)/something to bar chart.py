@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-
 with open("im closing my eyes.txt") as something:
     txt = something.read()
 listz = txt.split()
@@ -13,9 +12,10 @@ for x in listz:
 
 count = result.values()
 indentation = list(range(1, len(count) + 1))
-
-b1 = plt.barh(indentation, sorted(count),edgecolor = "black",linewidth = 0.5,color = "turquoise")
-plt.yticks(indentation,listz)
+f = result.keys()
+wl = [i for i in result.keys()]
+wlSorted = [w for c, w in sorted(zip(count, wl))]
+plt.barh(tuple(wlSorted),sorted(count) , edgecolor ="black", linewidth = 0.5, color ="turquoise")
 plt.xticks(range(0,25,5))
 plt.title("Im closing my eyes lyric")
 plt.ylabel("Words")
